@@ -1,0 +1,484 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\author{}
+\date{\vspace{-2.5em}}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\endhead
+title: ``Reproducible Research Project 1'' \\
+author: ``Jaime Espinoza'' \\
+date: ``23/05/2022'' \\
+output: \\
+md\_document: \\
+variant: markdown\_github \\
+\bottomrule
+\end{longtable}
+
+github repo for rest of specialization:
+\href{https://github.com/jcespinoza2022/datasciencecoursera}{Data
+Science Coursera}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Hoy en día es posible recopilar una gran cantidad de datos sobre el
+movimiento personal mediante dispositivos de monitorización de la
+actividad como Fitbit, Nike Fuelband o Jawbone Up. Este tipo de
+dispositivos forman parte del movimiento del ``yo cuantificado'', un
+grupo de entusiastas que toman mediciones sobre sí mismos con
+regularidad para mejorar su salud, para encontrar patrones en su
+comportamiento o porque son frikis de la tecnología. Pero estos datos
+siguen estando infrautilizados, tanto porque los datos brutos son
+difíciles de obtener como por la falta de métodos estadísticos y de
+software para procesar e interpretar los datos.
+
+Esta tarea utiliza los datos de un dispositivo de monitorización de la
+actividad personal. Este dispositivo recoge datos a intervalos de 5
+minutos a lo largo del día. Los datos consisten en dos meses de datos de
+un individuo anónimo recogidos durante los meses de octubre y noviembre
+de 2012 e incluyen el número de pasos dados en intervalos de 5 minutos
+cada día.
+
+Los datos para esta tarea pueden descargarse del sitio web del curso:
+
+Dataset:
+\href{https://d396qusza40orc.cloudfront.net/repdata\%2Fdata\%2Factivity.zip}{Activity
+monitoring data}
+
+Las variables incluidas en este conjunto de datos son:
+
+pasos : Número de pasos dados en un intervalo de 5 minutos (los valores
+faltantes se codifican como\color{rojo}{\verbo|NA|}N / A) date : La
+fecha en la que se tomó la medida en formato AAAA-MM-DD intervalo :
+Identificador del intervalo de 5 minutos en el que se tomó la medición
+El conjunto de datos se almacena en un archivo de valores separados por
+comas (CSV) y hay un total de 17 568 observaciones en este conjunto de
+datos.
+
+\hypertarget{carga-y-preprocesamiento-de-los-datos}{%
+\subsection{Carga y preprocesamiento de los
+datos}\label{carga-y-preprocesamiento-de-los-datos}}
+
+Descomprimir los datos para obtener un archivo csv.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\NormalTok{fileUrl }\OtherTok{\textless{}{-}} \StringTok{"https://d396qusza40orc.cloudfront.net/repdata\%2Fdata\%2Factivity.zip"}
+\FunctionTok{download.file}\NormalTok{(fileUrl, }\AttributeTok{destfile =} \FunctionTok{paste0}\NormalTok{(}\FunctionTok{getwd}\NormalTok{(), }\StringTok{\textquotesingle{}/repdata\%2Fdata\%2Factivity.zip\textquotesingle{}}\NormalTok{), }\AttributeTok{method =} \StringTok{"curl"}\NormalTok{)}
+\FunctionTok{unzip}\NormalTok{(}\StringTok{"repdata\%2Fdata\%2Factivity.zip"}\NormalTok{,}\AttributeTok{exdir =} \StringTok{"data"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Lectura de datos csv en Data.Table
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityDT }\OtherTok{\textless{}{-}}\NormalTok{ data.table}\SpecialCharTok{::}\FunctionTok{fread}\NormalTok{(}\AttributeTok{input =} \StringTok{"data/activity.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cuuxe1l-es-la-media-del-nuxfamero-total-de-pasos-dados-al-duxeda}{%
+\subsection{¿Cuál es la media del número total de pasos dados al
+día?}\label{cuuxe1l-es-la-media-del-nuxfamero-total-de-pasos-dados-al-duxeda}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Calculate the total number of steps taken per day
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Total\_Steps }\OtherTok{\textless{}{-}}\NormalTok{ activityDT[, }\FunctionTok{c}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(.SD, sum, }\AttributeTok{na.rm =} \ConstantTok{FALSE}\NormalTok{)), .SDcols }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{), by }\OtherTok{=}\NormalTok{ .(date)] }
+
+\FunctionTok{head}\NormalTok{(Total\_Steps, }\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           date steps
+##  1: 2012-10-01    NA
+##  2: 2012-10-02   126
+##  3: 2012-10-03 11352
+##  4: 2012-10-04 12116
+##  5: 2012-10-05 13294
+##  6: 2012-10-06 15420
+##  7: 2012-10-07 11015
+##  8: 2012-10-08    NA
+##  9: 2012-10-09 12811
+## 10: 2012-10-10  9900
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Haz un histograma del número total de pasos dados cada día.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(Total\_Steps, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ steps)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{fill =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{binwidth =} \DecValTok{1000}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Daily Steps"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Steps"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 8 rows containing non-finite values (stat_bin).
+\end{verbatim}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calcular y comunicar la media y la mediana del número total de pasos
+  dados al día
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Total\_Steps[, .(}\AttributeTok{Mean\_Steps =} \FunctionTok{mean}\NormalTok{(steps, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{Median\_Steps =} \FunctionTok{median}\NormalTok{(steps, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Mean_Steps Median_Steps
+## 1:   10766.19        10765
+\end{verbatim}
+
+\#\#¿Cuál es el patrón medio de actividad diaria?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Realiza un gráfico de series temporales 𝚝𝚢𝚙𝚎 = ``𝚕'' del intervalo de
+  5 minutos (eje x) y el número medio de pasos dados, promediado en
+  todos los días (eje y)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IntervalDT }\OtherTok{\textless{}{-}}\NormalTok{ activityDT[, }\FunctionTok{c}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(.SD, mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)), .SDcols }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{), by }\OtherTok{=}\NormalTok{ .(interval)] }
+
+\FunctionTok{ggplot}\NormalTok{(IntervalDT, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ interval , }\AttributeTok{y =}\NormalTok{ steps)) }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{size=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Avg. Daily Steps"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Interval"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Avg. Steps per day"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Qué intervalo de 5 minutos, de media en todos los días del conjunto
+  de datos, contiene el máximo número de pasos?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IntervalDT[steps }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(steps), .(}\AttributeTok{max\_interval =}\NormalTok{ interval)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    max_interval
+## 1:          835
+\end{verbatim}
+
+\hypertarget{imputar-valores-perdidos}{%
+\subsection{Imputar valores perdidos}\label{imputar-valores-perdidos}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Calcule y comunique el número total de valores perdidos en el conjunto
+  de datos (i.e.~el número total de filas con 𝙽𝙰s)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityDT[}\FunctionTok{is.na}\NormalTok{(steps), .N ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2304
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\# solución alternativa}
+
+\FunctionTok{nrow}\NormalTok{(activityDT[}\FunctionTok{is.na}\NormalTok{(steps),])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2304
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Diseñe una estrategia para rellenar todos los valores que faltan en el
+  conjunto de datos. La estrategia no tiene por qué ser sofisticada. Por
+  ejemplo, puede utilizar la media/mediana de ese día, o la media de ese
+  intervalo de 5 minutos, etc.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Filling in missing values with median of dataset. }
+\NormalTok{activityDT[}\FunctionTok{is.na}\NormalTok{(steps), }\StringTok{"steps"}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ activityDT[, }\FunctionTok{c}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(.SD, median, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)), .SDcols }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Cree un nuevo conjunto de datos que sea igual al conjunto de datos
+  original pero con los datos que faltan rellenados.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.table}\SpecialCharTok{::}\FunctionTok{fwrite}\NormalTok{(}\AttributeTok{x =}\NormalTok{ activityDT, }\AttributeTok{file =} \StringTok{"data/tidyData.csv"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Haz un histograma del número total de pasos dados cada día y calcula y
+  comunica la media y la mediana del número total de pasos dados al día.
+  ¿Difieren estos valores de las estimaciones de la primera parte de la
+  tarea? ¿Cuál es el impacto de la imputación de los datos que faltan en
+  las estimaciones del número total de pasos diarios?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Número total de pasos dados al día}
+\NormalTok{Total\_Steps }\OtherTok{\textless{}{-}}\NormalTok{ activityDT[, }\FunctionTok{c}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(.SD, sum)), .SDcols }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{), by }\OtherTok{=}\NormalTok{ .(date)] }
+
+\CommentTok{\#media y mediana del número total de pasos dados al día}
+\NormalTok{Total\_Steps[, .(}\AttributeTok{Mean\_Steps =} \FunctionTok{mean}\NormalTok{(steps), }\AttributeTok{Median\_Steps =} \FunctionTok{median}\NormalTok{(steps))]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Mean_Steps Median_Steps
+## 1:    9354.23        10395
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(Total\_Steps, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ steps)) }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{fill =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{binwidth =} \DecValTok{1000}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Daily Steps"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Steps"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Tipo de estimacion & median\_Steps & Mediana\_Steps \\
+\midrule
+\endhead
+primera Parte (con na) & 10765 & 10765 \\
+Second Part (rellenar na con la mediana) & 9354.23 & 10395 \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{hay-diferencias-en-los-patrones-de-actividad-entre-los-duxedas-de-semana-y-los-fines-de-semana}{%
+\subsection{¿Hay diferencias en los patrones de actividad entre los días
+de semana y los fines de
+semana?}\label{hay-diferencias-en-los-patrones-de-actividad-entre-los-duxedas-de-semana-y-los-fines-de-semana}}
+
+1.Cree una nueva variable de factor en el conjunto de datos con dos
+niveles: ``día de la semana'' y ``fin de semana'' que indique si una
+fecha determinada es un día de la semana o del fin de semana.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# JSolo hay que recrear la actividadDT desde cero y luego hacer el nuevo factor variable. (No es necesario, sólo quiero tener claro cuál es el proceso completo). }
+\NormalTok{activityDT }\OtherTok{\textless{}{-}}\NormalTok{ data.table}\SpecialCharTok{::}\FunctionTok{fread}\NormalTok{(}\AttributeTok{input =} \StringTok{"data/activity.csv"}\NormalTok{)}
+\NormalTok{activityDT[, date }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{as.POSIXct}\NormalTok{(date, }\AttributeTok{format =} \StringTok{"\%Y{-}\%m{-}\%d"}\NormalTok{)]}
+\NormalTok{activityDT[, }\StringTok{\textasciigrave{}}\AttributeTok{Day of Week}\StringTok{\textasciigrave{}}\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{weekdays}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date)]}
+\NormalTok{activityDT[}\FunctionTok{grepl}\NormalTok{(}\AttributeTok{pattern =} \StringTok{"Monday|Tuesday|Wednesday|Thursday|Friday"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Day of Week"}\NormalTok{), }\StringTok{"weekday or weekend"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"weekday"}
+\NormalTok{activityDT[}\FunctionTok{grepl}\NormalTok{(}\AttributeTok{pattern =} \StringTok{"Saturday|Sunday"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Day of Week"}\NormalTok{), }\StringTok{"weekday or weekend"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"weekend"}
+\NormalTok{activityDT[, }\StringTok{\textasciigrave{}}\AttributeTok{weekday or weekend}\StringTok{\textasciigrave{}} \SpecialCharTok{:}\ErrorTok{=} \FunctionTok{as.factor}\NormalTok{(}\StringTok{"weekday or weekend"}\NormalTok{)]}
+\FunctionTok{head}\NormalTok{(activityDT, }\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     steps       date interval Day of Week weekday or weekend
+##  1:    NA 2012-10-01        0       lunes weekday or weekend
+##  2:    NA 2012-10-01        5       lunes weekday or weekend
+##  3:    NA 2012-10-01       10       lunes weekday or weekend
+##  4:    NA 2012-10-01       15       lunes weekday or weekend
+##  5:    NA 2012-10-01       20       lunes weekday or weekend
+##  6:    NA 2012-10-01       25       lunes weekday or weekend
+##  7:    NA 2012-10-01       30       lunes weekday or weekend
+##  8:    NA 2012-10-01       35       lunes weekday or weekend
+##  9:    NA 2012-10-01       40       lunes weekday or weekend
+## 10:    NA 2012-10-01       45       lunes weekday or weekend
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Haga un gráfico de panel que contenga un gráfico de serie temporal (es
+  decir, 𝚝𝚢𝚙𝚎 = ``𝚕'') del intervalo de 5 minutos (eje x) y el número
+  medio de pasos dados, promediado en todos los días de la semana o del
+  fin de semana (eje y). Consulte el archivo README en el repositorio de
+  GitHub para ver un ejemplo de cómo debería ser este gráfico utilizando
+  datos simulados.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityDT[}\FunctionTok{is.na}\NormalTok{(steps), }\StringTok{"steps"}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ activityDT[, }\FunctionTok{c}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(.SD, median, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)), .SDcols }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{)]}
+\NormalTok{IntervalDT }\OtherTok{\textless{}{-}}\NormalTok{ activityDT[, }\FunctionTok{c}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(.SD, mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)), .SDcols }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{), by }\OtherTok{=}\NormalTok{ .(interval)]}
+
+\FunctionTok{ggplot}\NormalTok{(IntervalDT , }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ interval , }\AttributeTok{y =}\NormalTok{ steps, }\AttributeTok{color=}\StringTok{"weekday or weekend"}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Avg. Daily Steps by Weektype"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Interval"}\NormalTok{, }\AttributeTok{y =} \StringTok{"No. of Steps"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\StringTok{\textquotesingle{}weekday or weekend\textquotesingle{}}\NormalTok{ , }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{, }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\end{document}
